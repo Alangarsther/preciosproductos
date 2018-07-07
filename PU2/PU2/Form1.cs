@@ -16,6 +16,7 @@ namespace PU2
         public Form1()
         {
             InitializeComponent();
+            //comentario test
         }
 
         private void Form1_Load(object sender, EventArgs e)
