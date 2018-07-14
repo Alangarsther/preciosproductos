@@ -172,7 +172,7 @@ namespace PU2
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             MessageBox.Show("favor de guardar el archivo");
-
+            dataGridView1.SelectAll();
             dataGridView1.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             DataObject dataObject = dataGridView1.GetClipboardContent();
             //File.WriteAllText(@"c:\Users\AlanGarcia\Documents\Visual Studio 2017\precios y productos.csv");
