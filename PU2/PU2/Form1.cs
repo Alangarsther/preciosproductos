@@ -7,13 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.IO;
 namespace PU2
 {
     public partial class Form1 : Form
     {
         private List<Productos> listaProductos = new List<Productos>();
         Productos[] nproductos = new Productos[10];
+        private int rowselect;
         public Form1()
         {
             InitializeComponent();
@@ -56,7 +57,7 @@ namespace PU2
         private void cargaProductos()
         {
 
-            try
+            /*try
             {
                 // for (int i = 0; i < nproductos.Length; i++)
                 for (int i = 0; i < 3; i++)
@@ -69,14 +70,112 @@ namespace PU2
             {
 
                 MessageBox.Show("no se" +err);
+            }*/
+            try
+            {
+                int counter = 0;
+                string line;
+                System.IO.StreamReader file = new System.IO.StreamReader(@"c:\Users\AlanGarcia\Documents\Visual Studio 2017\precios y productos.csv");
+                while ((line = file.ReadLine()) != null)
+                {
+                    richTextBox1.Text += line + Environment.NewLine;
+                    dataGridView1.Rows.Add(line.Split(','));
+                    dataGridView1.Rows[counter].HeaderCell.Value = (counter + 1).ToString();
+                    counter++;
+
+                }
+                file.Close();
+
             }
-          
+            catch
+            {
+
+            }
+        }
+        
+        private void button1_Click(object sender, EventArgs e)
+        {
+            bool existe = false;
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                if (dataGridView1[0,i].Value.ToString()==txtnom.Text)
+                {
+                    existe = true;
+                }
+            }
+            if (existe)
+            {
+                dataGridView1.Rows.Add(txtcod, txtnom, txtprecio);
+                dataGridView1_Numerar();
+            }
+            else
+            {
+
+            }
+         
 
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex != -1)
+            {
+                txtcod.Text = dataGridView1[0, e.RowIndex].Value.ToString();
+                txtnom.Text = dataGridView1[1, e.RowIndex].Value.ToString();
+                txtprecio.Text = dataGridView1[2, e.RowIndex].Value.ToString();
+            }
+            
+        }
 
+        private void btnquitar_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("desea eliminar " + dataGridView1[1, rowselect].Value.ToString()+"con precio de : "+ dataGridView1[2, rowselect].Value.ToString(),"titulo de ventana", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                dataGridView1.Rows.RemoveAt(rowselect);
+            }
+
+        }
+        private void limpiar()
+        {
+            txtcod.Clear();
+            txtnom.Clear();
+            txtprecio.Clear();
+            txtcod.Enabled = true;
+            txtcod.Focus();
+
+        }
+        private void dataGridView1_Numerar()
+        {
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                dataGridView1.Rows[i].HeaderCell.Value = (i + 1).ToString();
+            }
+
+        }
+
+
+        private void btnactualizar_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("desea modificar " + dataGridView1[1, rowselect].Value.ToString() + "con precio de : " + dataGridView1[2, rowselect].Value.ToString(), "titulo de ventana", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                dataGridView1[1,rowselect].Value=txtnom.Text;
+                dataGridView1[2, rowselect].Value = txtprecio.Text;
+                limpiar();
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            limpiar();
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            MessageBox.Show("favor de guardar el archivo");
+
+            dataGridView1.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
+            DataObject dataObject = dataGridView1.GetClipboardContent();
+            //File.WriteAllText(@"c:\Users\AlanGarcia\Documents\Visual Studio 2017\precios y productos.csv");
         }
     }
 
@@ -89,7 +188,7 @@ namespace PU2
 
         public Productos()
         {
-            MessageBox.Show("se llamaron");
+            //MessageBox.Show("se llamaron");
         }
 
         public Productos(long producto_codigo, String producto_nombre, double producto_precio)
