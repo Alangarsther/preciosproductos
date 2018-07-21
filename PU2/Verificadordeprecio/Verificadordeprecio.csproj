@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{996DD6D1-9C67-4F67-92EB-D3E36522676D}</ProjectGuid>
+    <ProjectGuid>{1E826392-736C-41C6-8AD2-232888F1B11C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>PU2</RootNamespace>
-    <AssemblyName>PU2</AssemblyName>
+    <RootNamespace>Verificadordeprecio</RootNamespace>
+    <AssemblyName>Verificadordeprecio</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -45,28 +45,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Verificadordeprecio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Puntoventa.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Puntoventa.Designer.cs">
-      <DependentUpon>Puntoventa.cs</DependentUpon>
-    </Compile>
-    <Compile Include="VerificadordePrecio.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="VerificadordePrecio.Designer.cs">
-      <DependentUpon>VerificadordePrecio.cs</DependentUpon>
+    <Compile Include="Verificadordeprecio.Designer.cs">
+      <DependentUpon>Verificadordeprecio.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Verificadordeprecio.resx">
+      <DependentUpon>Verificadordeprecio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -76,14 +64,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Puntoventa.resx">
-      <DependentUpon>Puntoventa.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="VerificadordePrecio.resx">
-      <DependentUpon>VerificadordePrecio.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -96,18 +77,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\44516307-botón-de-la-cruz-icono-agregar.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Крестик.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Крестик1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\actualizar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
