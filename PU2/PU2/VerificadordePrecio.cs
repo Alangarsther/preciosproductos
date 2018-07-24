@@ -39,14 +39,14 @@ namespace PU2
         {
             string[] precioproducto;
             string line;
-            StreamReader file= new StreamReader("precios y productos.csv");
+            StreamReader file = new StreamReader("precios y productos.csv");
             MessageBox.Show(texto);
-            while ((line= file.ReadLine())!=null)
+            while ((line = file.ReadLine()) != null)
             {
                 precioproducto = line.Split(',');
-                if (texto==precioproducto[0])
+                if (texto == precioproducto[0])
                 {
-                    label3.Text = "Nombre" + precioproducto[1] + "Precio:$" + precioproducto[2];
+                    label4.Text = "Nombre" + precioproducto[1] + "Precio:$" + precioproducto[2];
                 }
             }
             file.Close();

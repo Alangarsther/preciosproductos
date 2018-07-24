@@ -33,7 +33,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblfecha = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -71,21 +71,21 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // label3
+            // label4
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(483, 282);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 24);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Codigo";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(434, 330);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(60, 24);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "label4";
             // 
             // VerificadordePrecio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1354, 733);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.lblfecha);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -109,6 +109,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblfecha;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

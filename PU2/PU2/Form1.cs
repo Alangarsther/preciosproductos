@@ -177,6 +177,11 @@ namespace PU2
             DataObject dataObject = dataGridView1.GetClipboardContent();
             //File.WriteAllText(@"c:\Users\AlanGarcia\Documents\Visual Studio 2017\precios y productos.csv");
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 
     class Productos

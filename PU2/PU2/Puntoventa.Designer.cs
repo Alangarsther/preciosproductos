@@ -92,9 +92,9 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(568, 417);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 24);
+            this.label4.Size = new System.Drawing.Size(72, 24);
             this.label4.TabIndex = 5;
-            this.label4.Text = "label4";
+            this.label4.Text = "TOTAL";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // Puntoventa

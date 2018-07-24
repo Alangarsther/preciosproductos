@@ -28,6 +28,7 @@ namespace PU2
             dataGridView1.Location = new Point(1, label1.Height + label2.Height +  label3.Height + 21);
             textBox1.Width = this.Width - 2;
             textBox1.Location = new Point(0, this.Height - textBox1.Height);
+            label4.Location = new Point(this.Width - label4.Width + 2, this.Height - textBox1.Height - label4.Height);
         }
 
         private void label4_Click(object sender, EventArgs e)
