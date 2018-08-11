@@ -51,8 +51,6 @@ namespace PU2
 
             lblfecha.Text = DateTime.Now.ToString();
             lblfecha.Location = new Point(this.Width / 2 - lblfecha.Width / 2, lblsubtitulo.Height + 11);
-
-            label2.locatiom
         }
 
         private void timer1_Tick(object sender, EventArgs e)
