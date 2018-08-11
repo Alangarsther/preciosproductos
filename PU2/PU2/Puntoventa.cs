@@ -46,6 +46,10 @@ namespace PU2
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (e.KeyChar.ToString()=="p")
+            {
+
+            }
             if (e.KeyChar == 13)
             {
                 //MessageBox.Show(textBox1.Text);
@@ -71,13 +75,14 @@ namespace PU2
             MessageBox.Show(idproducto);
             while ((line = file.ReadLine()) != null)
             {
-                infoproducto = line.Split(',');
-                MessageBox.Show(idproducto + " " + infoproducto[0]);
+                infoproducto = (line.Split(','));
+                //MessageBox.Show(idproducto + " " + infoproducto[0]);
                 if (idproducto == infoproducto[0])
                 {
                     dataGridView1.Rows.Add(cantidad, infoproducto[1], infoproducto[2], cantidad * double.Parse(infoproducto[2]));
                     total = total + Convert.ToDouble(infoproducto[2]);
-                   
+
+                    Total();
                     existe = true;
 
                     //label4.Text = "Nombre" + precioproducto[1] + "Precio:$" + precioproducto[2];
@@ -108,7 +113,7 @@ namespace PU2
             double total = 0;
             for (int i = 0; i <dataGridView1.Rows.Count;i++)
             {
-                total += Convert.ToDouble(dataGridView1[3, i].Value.ToString());
+                total += Convert.ToDouble(dataGridView1[2, i].Value.ToString());
 
             }
             label4.Text = "total$:" + total.ToString("n");
@@ -119,12 +124,16 @@ namespace PU2
         {
             if (dataGridView1.Rows.Count > 0)
             {
-                dataGridView1.Rows.Add(dataGridView1[0,dataGridView1.Rows.Count-1].Value.ToString());
+                dataGridView1.Rows.Add(dataGridView1[0, dataGridView1.Rows.Count - 1].Value.ToString());
                 dataGridView1[1, dataGridView1.Rows.Count - 1].Value.ToString();
                 dataGridView1[2, dataGridView1.Rows.Count - 1].Value.ToString();
                 dataGridView1[3, dataGridView1.Rows.Count - 1].Value.ToString();
             }
         }
 
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
