@@ -62,5 +62,10 @@ namespace PU2
                 codigo="";
             }
         }
+
+        private void lblfecha_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

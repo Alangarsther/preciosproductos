@@ -12,8 +12,8 @@ namespace PU2
 {
     public partial class Puntoventa : Form
     {
-        private double total = 0;
-        bool existe=false;
+        private double total = 0, cambio = 0, monedas = 0, subtotal = 0;
+        bool existe = false;
         private string[] cantidadproducto;
         public Puntoventa()
         {
@@ -35,8 +35,10 @@ namespace PU2
             dataGridView1.Columns[0].Width = Convert.ToInt32(this.Width * 0.15);
             dataGridView1.Columns[1].Width = Convert.ToInt32(this.Width * 0.645);
             dataGridView1.Columns[0].Width = Convert.ToInt32(this.Width * 0.20);
-            label4.Location = new Point(this.Width - label4.Width + 2, this.Height - textBox1.Height - label4.Height);
+            lbltotal.Location = new Point(this.Width - lbltotal.Width + 2, this.Height - textBox1.Height - lbltotal.Height);
             updateFontDgv();
+
+            textBox1.Focus();
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -46,10 +48,6 @@ namespace PU2
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar.ToString()=="p")
-            {
-
-            }
             if (e.KeyChar == 13)
             {
                 //MessageBox.Show(textBox1.Text);
@@ -57,6 +55,12 @@ namespace PU2
                 {
                     buscarproducto(1,textBox1.Text);
                 }
+               // else if (textBox1.Text.ToLower() == "menu")
+                //{
+                    //Menu menu = new Menu();
+                    //menu.Show();
+                    //this.Hide();
+                //}
                 else
                 {
                     cantidadproducto=textBox1.Text.Split('*');
@@ -65,6 +69,23 @@ namespace PU2
                 
                 textBox1.Clear();
                 textBox1.Focus();
+            }
+            if (e.KeyChar == 27)
+            {
+                Eliminarproducto();
+                Total();
+            }
+
+            if (e.KeyChar == 9)
+            {
+                dublicarultimoproducto();
+                Total();
+            }
+
+            if (e.KeyChar.ToString() == "p")
+            {
+                Pago();
+                Total();
             }
         }
         private void buscarproducto(int cantidad,string idproducto)
@@ -116,9 +137,25 @@ namespace PU2
                 total += Convert.ToDouble(dataGridView1[2, i].Value.ToString());
 
             }
-            label4.Text = "total$:" + total.ToString("n");
-            label4.Location = new Point(this.Width - label4.Width + 2, this.Height - textBox1.Height - label4.Height);
+            lbltotal.Text = "total$:" + total.ToString("n");
+            lbltotal.Location = new Point(this.Width - lbltotal.Width + 2, this.Height - textBox1.Height - lbltotal.Height);
 
+        }
+        private void Pago()
+        {
+            monedas = Convert.ToDouble(textBox1.Text);
+            subtotal += this.total;
+
+
+            this.total = Convert.ToDouble(textBox1.Text) - this.total;
+            cambio = total;
+            lbltotal.Text = "Cambio: $" + total;
+            lbltotal.Location = new Point(this.Width - 120, this.Height - lbltotal.Height - 60);
+            textBox1.Clear();
+
+            Imprimir();
+            dataGridView1.Rows.Clear();
+            textBox1.Clear();
         }
         private void dublicarultimoproducto()
         {
@@ -129,6 +166,10 @@ namespace PU2
                 dataGridView1[2, dataGridView1.Rows.Count - 1].Value.ToString();
                 dataGridView1[3, dataGridView1.Rows.Count - 1].Value.ToString();
             }
+        }
+        private void Imprimir()
+        {
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

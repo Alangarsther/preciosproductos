@@ -14,7 +14,7 @@ namespace PU2
     {
         private List<Productos> listaProductos = new List<Productos>();
         Productos[] nproductos = new Productos[10];
-        private int rowselect;
+        private int  RowSelect;
         public Form1()
         {
             InitializeComponent();
@@ -98,22 +98,22 @@ namespace PU2
             bool existe = false;
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
-                if (dataGridView1[0,i].Value.ToString()==txtnom.Text)
+                if (dataGridView1[0, i].Value.ToString() == txtcod.Text)
                 {
                     existe = true;
+                    break;
                 }
             }
-            if (existe)
+            if (existe == false)
             {
-                dataGridView1.Rows.Add(txtcod, txtnom, txtprecio);
+                dataGridView1.Rows.Add(txtcod.Text, txtnom.Text, txtprecio.Text);
                 dataGridView1_Numerar();
             }
             else
             {
-
+                MessageBox.Show("No puede agregarse productos con codigo repetido", (MessageBoxButtons.OK).ToString());
+                limpiar();
             }
-         
-
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -123,24 +123,27 @@ namespace PU2
                 txtcod.Text = dataGridView1[0, e.RowIndex].Value.ToString();
                 txtnom.Text = dataGridView1[1, e.RowIndex].Value.ToString();
                 txtprecio.Text = dataGridView1[2, e.RowIndex].Value.ToString();
+                RowSelect = e.RowIndex;
+                txtcod.Enabled = false;
             }
-            
+
         }
 
         private void btnquitar_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("desea eliminar " + dataGridView1[1, rowselect].Value.ToString()+"con precio de : "+ dataGridView1[2, rowselect].Value.ToString(),"titulo de ventana", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("desea eliminar " + dataGridView1[1, RowSelect].Value.ToString() + "con precio de : " + dataGridView1[2, RowSelect].Value.ToString(), "titulo de ventana", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                dataGridView1.Rows.RemoveAt(rowselect);
+                dataGridView1.Rows.RemoveAt(RowSelect);
             }
-
+            limpiar();
+            dataGridView1_Numerar();
         }
         private void limpiar()
         {
             txtcod.Clear();
             txtnom.Clear();
             txtprecio.Clear();
-            txtcod.Enabled = true;
+            //txtcod.Enabled = true;
             txtcod.Focus();
 
         }
@@ -156,12 +159,12 @@ namespace PU2
 
         private void btnactualizar_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("desea modificar " + dataGridView1[1, rowselect].Value.ToString() + "con precio de : " + dataGridView1[2, rowselect].Value.ToString(), "titulo de ventana", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("desea modificar " + dataGridView1[1, RowSelect].Value.ToString()+ "con precio de : " + dataGridView1[2, RowSelect].Value.ToString(), "titulo de ventana", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                dataGridView1[1,rowselect].Value=txtnom.Text;
-                dataGridView1[2, rowselect].Value = txtprecio.Text;
-                limpiar();
+                dataGridView1[1,RowSelect].Value=txtnom.Text;
+                dataGridView1[2,RowSelect].Value = txtprecio.Text; 
             }
+            limpiar();
         }
 
         private void button1_Click_1(object sender, EventArgs e)

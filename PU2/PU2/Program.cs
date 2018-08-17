@@ -16,7 +16,7 @@ namespace PU2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CHECADOR_DE_PERSONAL());
+            Application.Run(new Puntoventa());
         }
     }
 }

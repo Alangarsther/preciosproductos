@@ -29,43 +29,25 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.lbltitulo = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblEmpleado = new System.Windows.Forms.Label();
+            this.lbltitulo = new System.Windows.Forms.Label();
             this.lblfecha = new System.Windows.Forms.Label();
             this.lblsubtitulo = new System.Windows.Forms.Label();
+            this.lblempleado = new System.Windows.Forms.Label();
+            this.lblinf = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // lbltitulo
-            // 
-            this.lbltitulo.AutoSize = true;
-            this.lbltitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltitulo.Location = new System.Drawing.Point(145, 38);
-            this.lbltitulo.Name = "lbltitulo";
-            this.lbltitulo.Size = new System.Drawing.Size(428, 20);
-            this.lbltitulo.TabIndex = 0;
-            this.lbltitulo.Text = "Sistema de control de entrada y salida de empresa sa de cv";
-            this.lbltitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // timer1
             // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(329, 171);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(391, 24);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "POR FAVOR CHECAR ENTRADA O SALIDA";
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Image = global::PU2.Properties.Resources.icono_persona;
             this.pictureBox1.Location = new System.Drawing.Point(28, 75);
             this.pictureBox1.Name = "pictureBox1";
@@ -75,46 +57,67 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // lblEmpleado
+            // lbltitulo
             // 
-            this.lblEmpleado.AutoSize = true;
-            this.lblEmpleado.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmpleado.Location = new System.Drawing.Point(347, 198);
-            this.lblEmpleado.Name = "lblEmpleado";
-            this.lblEmpleado.Size = new System.Drawing.Size(65, 22);
-            this.lblEmpleado.TabIndex = 4;
-            this.lblEmpleado.Text = "label3";
+            this.lbltitulo.AutoSize = true;
+            this.lbltitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltitulo.Location = new System.Drawing.Point(178, 20);
+            this.lbltitulo.Name = "lbltitulo";
+            this.lbltitulo.Size = new System.Drawing.Size(445, 20);
+            this.lbltitulo.TabIndex = 3;
+            this.lbltitulo.Text = "SISTEMA DE CHECADO DE LA EMPRESA SA DE CV";
             // 
             // lblfecha
             // 
             this.lblfecha.AutoSize = true;
-            this.lblfecha.Location = new System.Drawing.Point(359, 97);
+            this.lblfecha.Location = new System.Drawing.Point(361, 54);
             this.lblfecha.Name = "lblfecha";
             this.lblfecha.Size = new System.Drawing.Size(35, 13);
-            this.lblfecha.TabIndex = 5;
-            this.lblfecha.Text = "label3";
+            this.lblfecha.TabIndex = 4;
+            this.lblfecha.Text = "label2";
             // 
             // lblsubtitulo
             // 
             this.lblsubtitulo.AutoSize = true;
-            this.lblsubtitulo.Location = new System.Drawing.Point(359, 75);
+            this.lblsubtitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblsubtitulo.Location = new System.Drawing.Point(341, 94);
             this.lblsubtitulo.Name = "lblsubtitulo";
-            this.lblsubtitulo.Size = new System.Drawing.Size(35, 13);
-            this.lblsubtitulo.TabIndex = 6;
-            this.lblsubtitulo.Text = "label4";
+            this.lblsubtitulo.Size = new System.Drawing.Size(397, 20);
+            this.lblsubtitulo.TabIndex = 5;
+            this.lblsubtitulo.Text = "POR FAVOR CHECAR SU ENTRADA Y SALIDA";
+            // 
+            // lblempleado
+            // 
+            this.lblempleado.AutoSize = true;
+            this.lblempleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblempleado.Location = new System.Drawing.Point(341, 141);
+            this.lblempleado.Name = "lblempleado";
+            this.lblempleado.Size = new System.Drawing.Size(57, 20);
+            this.lblempleado.TabIndex = 6;
+            this.lblempleado.Text = "label4";
+            // 
+            // lblinf
+            // 
+            this.lblinf.AutoSize = true;
+            this.lblinf.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblinf.Location = new System.Drawing.Point(341, 256);
+            this.lblinf.Name = "lblinf";
+            this.lblinf.Size = new System.Drawing.Size(57, 20);
+            this.lblinf.TabIndex = 7;
+            this.lblinf.Text = "label1";
             // 
             // CHECADOR_DE_PERSONAL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(814, 341);
+            this.Controls.Add(this.lblinf);
+            this.Controls.Add(this.lblempleado);
             this.Controls.Add(this.lblsubtitulo);
             this.Controls.Add(this.lblfecha);
-            this.Controls.Add(this.lblEmpleado);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lbltitulo);
+            this.Controls.Add(this.pictureBox1);
             this.Name = "CHECADOR_DE_PERSONAL";
             this.Text = "CHECADOR_DE_PERSONAL";
             this.Load += new System.EventHandler(this.CHECADOR_DE_PERSONAL_Load);
@@ -126,13 +129,12 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lbltitulo;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lblEmpleado;
+        private System.Windows.Forms.Label lbltitulo;
         private System.Windows.Forms.Label lblfecha;
         private System.Windows.Forms.Label lblsubtitulo;
+        private System.Windows.Forms.Label lblempleado;
+        private System.Windows.Forms.Label lblinf;
     }
 }
