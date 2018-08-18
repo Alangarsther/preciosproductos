@@ -73,12 +73,14 @@ namespace PU2
                         lineChanger(InfoEmpleado[0] + "," + InfoEmpleado[1] + "," + InfoEmpleado[2] + "," + InfoEmpleado[3] + ",ENTRADA", contador);
                         lblinf.Text = "A REALIZADO UN REGISTRO DE -ENTRADA-";
                         lblinf.BackColor = Color.Lime;
+                        MandarCorreo(lblempleado.Text,InfoEmpleado[3]);
                     }
                     else
                     {
                         lineChanger(InfoEmpleado[0] + "," + InfoEmpleado[1] + "," + InfoEmpleado[2] + "," + InfoEmpleado[3] + ",SALIDA", contador);
                         lblinf.Text = "A REALIZADO UN REGISTRO DE -SALIDA-";
                         lblinf.BackColor = Color.Red;
+                        MandarCorreo(lblempleado.Text, InfoEmpleado[3]);
                     }
                     lblempleado.Update();
                     pictureBox1.Update();
@@ -118,38 +120,61 @@ namespace PU2
 
         private void MandarCorreo(String Mensaje, string correo)
         {
+            
             System.Net.Mail.MailMessage msg = new System.Net.Mail.MailMessage();
             try
             {
-                msg.To.Add(correo);
-                //msg.To.Add("ebarnett57@gmail.com");
+                //msg.To.Add("alan_gh89@hotmail.com");
+                /*msg.To.Add(correo);
                 msg.DeliveryNotificationOptions = System.Net.Mail.DeliveryNotificationOptions.OnSuccess;
-                msg.Priority = System.Net.Mail.MailPriority.High;
-                msg.From = new System.Net.Mail.MailAddress("alan_gh89@hotmail.com", "ALAN", System.Text.Encoding.UTF8);
+                msg.Priority = MailPriority.High;
+                msg.From = new MailAddress("alan_gh89@hotmail.com");
                 msg.Subject = "Checador";
                 msg.SubjectEncoding = System.Text.Encoding.UTF8;
                 msg.Body = Mensaje;
                 msg.BodyEncoding = System.Text.Encoding.UTF8;
                 msg.IsBodyHtml = false;
-                SmtpClient client = new SmtpClient(); 
+                
+                SmtpClient client = new SmtpClient();
                 client.Host = "smtp.hotmail.com";
                 client.Port = 587;
                 client.UseDefaultCredentials = false;
+                MessageBox.Show("bien");
                 client.EnableSsl = true;
-                client.Credentials = new
-               System.Net.NetworkCredential("alan_gh89@hotmail.coM", "Contraseña");
+                client.Credentials = new System.Net.NetworkCredential("alan_gh89@hotmail.com", "defender1");
+
                 client.Send(msg);
-                MessageBox.Show("ya mande el correo!!!");
+                //MessageBox.Show("ya mande el correo!!!");
+                */
+                SmtpClient SmtpServer = new SmtpClient("smtp.live.com");
+                var mail = new MailMessage();
+                mail.From = new MailAddress("alan_gh89@hotmail.com");
+                mail.To.Add("alan_gh89@hotmail.com");
+                mail.Subject = "Test Mail - 1";
+                mail.IsBodyHtml = true;
+                string htmlBody;
+                htmlBody = "Write some HTML code here";
+                mail.Body = htmlBody;
+                SmtpServer.Port = 587;
+                SmtpServer.UseDefaultCredentials = false;
+                SmtpServer.Credentials = new System.Net.NetworkCredential("alan_gh89@hotmail.com", "defender1");
+                SmtpServer.EnableSsl = true;
+                SmtpServer.Send(mail);
+                MessageBox.Show("bien");
             }
             catch (System.Net.Mail.SmtpException ex)
             {
-                MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK,
+                MessageBox.Show("1" + ex.Message, "error", MessageBoxButtons.OK,
                MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
             catch (FormatException ex)
             {
-                MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK,
+                MessageBox.Show("2"+ ex.Message, "error", MessageBoxButtons.OK,
                MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("3"+error.ToString());
             }
         }
 
