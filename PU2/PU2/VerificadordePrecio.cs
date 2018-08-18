@@ -67,5 +67,12 @@ namespace PU2
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form2 menu = new Form2();
+            menu.Show();
+            this.Hide();
+        }
     }
 }

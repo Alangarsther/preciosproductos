@@ -157,6 +157,14 @@ namespace PU2
             dataGridView1.Rows.Clear();
             textBox1.Clear();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form2 menu = new Form2();
+            menu.Show();
+            this.Hide();
+        }
+
         private void dublicarultimoproducto()
         {
             if (dataGridView1.Rows.Count > 0)
