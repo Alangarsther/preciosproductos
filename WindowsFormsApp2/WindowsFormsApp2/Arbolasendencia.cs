@@ -63,5 +63,10 @@ namespace WindowsFormsApp2
                 Asendencia(mama);
             }
         }
+
+        private void btnlimpiar_Click(object sender, EventArgs e)
+        {
+            treeView1.Nodes.Clear();
+        }
     }
 }

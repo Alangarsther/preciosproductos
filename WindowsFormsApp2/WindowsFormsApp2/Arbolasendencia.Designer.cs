@@ -31,6 +31,7 @@
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.button1 = new System.Windows.Forms.Button();
             this.genUpDown = new System.Windows.Forms.NumericUpDown();
+            this.btnlimpiar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.genUpDown)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,11 +60,22 @@
             this.genUpDown.Size = new System.Drawing.Size(120, 20);
             this.genUpDown.TabIndex = 2;
             // 
+            // btnlimpiar
+            // 
+            this.btnlimpiar.Location = new System.Drawing.Point(500, 235);
+            this.btnlimpiar.Name = "btnlimpiar";
+            this.btnlimpiar.Size = new System.Drawing.Size(121, 42);
+            this.btnlimpiar.TabIndex = 3;
+            this.btnlimpiar.Text = "LIMPIAR ";
+            this.btnlimpiar.UseVisualStyleBackColor = true;
+            this.btnlimpiar.Click += new System.EventHandler(this.btnlimpiar_Click);
+            // 
             // Arbolasendencia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnlimpiar);
             this.Controls.Add(this.genUpDown);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.treeView1);
@@ -79,5 +91,6 @@
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.NumericUpDown genUpDown;
+        private System.Windows.Forms.Button btnlimpiar;
     }
 }
